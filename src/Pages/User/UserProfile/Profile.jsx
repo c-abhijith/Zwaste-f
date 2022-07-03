@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {Container,Row,Col,Card,Table} from 'react-bootstrap'
 import "./Profile.css"
 import Axios from "../../../axios"
-import { MDBContainer } from "mdbreact";
+
 import userlogos from "./person.png"
 import {axiosInstance} from "../../../AxiosInstance/AxiosSetBaseUrl"
 import jwt_decode from "jwt-decode";

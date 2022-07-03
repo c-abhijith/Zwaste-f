@@ -7,25 +7,8 @@ import {axiosInstance} from "../../../AxiosInstance/AxiosSetBaseUrl"
 import {Button,Modal} from "react-bootstrap"
 import Draggable, {DraggableCore} from 'react-draggable';
 import {Card,NavDropdown} from "react-bootstrap"
-import { MDBBtn,
-  MDBModal,
-  MDBModalDialog,
-  MDBModalContent,
-  MDBModalHeader,
-  MDBModalTitle,
-  MDBModalBody,
-  MDBModalFooter,
-} from 'mdb-react-ui-kit';
-import {
-  Box,
-  ButtonGroup,
-  Flex,
-  HStack,
-  IconButton,
-  Input,
-  SkeletonText,
-  Text,
-} from '@chakra-ui/react'
+
+
 
 
 import Alert from '../../../Alert/Alert';
@@ -240,12 +223,12 @@ console.log(user,"|||||||||||||||||||||||||||||||")
 
 
 
-            <Flex
+            <div
      
       w='100vw'
     >
       
-      <Box position='absolute' left={0} top={0}  w='100%' my="5%">
+      <Card position='absolute' left={0} top={0}  w='100%' my="5%">
         {/* Google Map Box */}
         {   isLoaded ?  <GoogleMap
                   center={center}
@@ -294,14 +277,14 @@ console.log(user,"|||||||||||||||||||||||||||||||")
                 </div>
                ))} 
         </GoogleMap> : <div>Map not found</div>}
-      </Box>
+      </Card>
       <Draggable
         defaultPosition={{x: 0, y: 0}}
         onMouseDown={eventHandler}
         onStart={eventHandler}
         onDrag={eventHandler}
         onStop={eventHandler}>
-      <Box
+      <Card
         p={4}
         position="absolute"
         borderRadius='lg'
@@ -314,7 +297,7 @@ console.log(user,"|||||||||||||||||||||||||||||||")
         Size="20px"
         backgroundColor="#901ba6"
       >
-        <HStack spacing={2} style={{backgroundColor:"#901ba6",borderColor:"pink"}} justifyContent='space-between'>
+        <div spacing={2} style={{backgroundColor:"#901ba6",borderColor:"pink"}} justifyContent='space-between'>
 
         {notificationclose ? 
         <div>
@@ -326,7 +309,7 @@ console.log(user,"|||||||||||||||||||||||||||||||")
         }
           
          
-        </HStack>
+        </div>
         {notification ?
         <div className="scrollbar scrollbar-primary" style={scrollContainerStyle}>
          <i class="fa fa-window-close" onClick={NotificationhandleShow} aria-hidden="true"></i>
@@ -341,9 +324,9 @@ console.log(user,"|||||||||||||||||||||||||||||||")
         </div>
         : " "}
       {/* <div onClick={clear}>clear</div> */}
-      </Box>
+      </Card>
       </Draggable>
-    </Flex>
+    </div>
                 {/* <Col className="m-2">
                 {user && <div>ss</div>}
                   
@@ -403,56 +386,7 @@ console.log(user,"|||||||||||||||||||||||||||||||")
 
         </Row>
 
-     {  username && 
-     <MDBModal
-        animationDirection='bottom'
-        show={topRightModal}
-        tabIndex='-1'
-        setShow={setTopRightModal}
-        
-      >
-        <MDBModalDialog position='bottom-righ'  style={{marginRight:"10px",border:"10px"}} bottom>
-          <MDBModalContent>
-            <MDBModalHeader className='bg-info text-white text-center'>
-              <MDBModalTitle style={{marginLeft:"35%"}}>User profile</MDBModalTitle>
-              <MDBBtn
-                color='none'
-                className='btn-close btn-close-white'
-                // onClick={toggleShow}
-              ></MDBBtn>
-            </MDBModalHeader>
-            <MDBModalBody>
-              <div className='row'>
-                <div className='col-3 text-center'>
-                  <i className='fas fa-solid fa-user-large fa-4x text-info'></i>
-                </div>
-
-                <div className='col-9'>
-                  <p>Username :    {username.username} </p>
-                  <p>Name  :       {username.first_name} </p>
-                  <p>phone_number: {username.phone_number}</p>
-                </div>
-                <div className='col-9'>
-                <p>Distance: {distance} </p>
-                <p>Duration: {duration} </p>
-                  
-                </div>
-              </div>
-            </MDBModalBody>
-            <MDBModalBody>
-
-            
-            </MDBModalBody>
-            <MDBModalFooter>
-              {/* <MDBBtn color='info'>Go to the cart</MDBBtn> */}
-              <MDBBtn outline color='info' onClick={()=>{setTopRightModal()
-                                                        }}>
-                Close
-              </MDBBtn>
-            </MDBModalFooter>
-          </MDBModalContent>
-        </MDBModalDialog>
-      </MDBModal>}
+    
     </Container>
     
     
