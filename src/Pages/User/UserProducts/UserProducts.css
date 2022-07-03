@@ -1,0 +1,13 @@
+.CardProducts{
+    width: 16rem;
+    height : 20rem ;
+    margin-top: 10%;
+}
+@media screen and (max-width: 990px) {
+
+    .CardProducts{
+    
+        margin-top: 10%;
+        margin-left: 50px;
+    }
+ }

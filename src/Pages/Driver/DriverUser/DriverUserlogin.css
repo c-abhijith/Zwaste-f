@@ -1,0 +1,14 @@
+.driveruserrespn{
+   
+    width:18rem ;
+    height:175px;
+}
+
+@media only screen and (max-width: 600px) {
+    
+        .driveruserrespn{
+            width: 15rem;
+            height: 173px;
+        }
+  
+  }

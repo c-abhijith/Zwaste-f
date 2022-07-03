@@ -1,0 +1,10 @@
+.userTable {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .adminusertable{
+        width: 91%;
+        margin-left: 5%;
+        margin-top: 5%;
+  }

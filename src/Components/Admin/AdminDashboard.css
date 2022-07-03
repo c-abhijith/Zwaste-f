@@ -1,0 +1,9 @@
+.containerdash{
+    display: flex;
+}
+
+.otherdash{
+    flex: 6;
+    background-color: rgb(238, 249, 249);
+
+}

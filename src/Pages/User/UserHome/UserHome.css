@@ -1,0 +1,40 @@
+
+    
+
+    
+
+    .cardfirst{
+    /* width = 28rem,
+    /* rounded=50%", */
+    /* height=45vh , */ 
+    /* marginTop=10%",
+    marginLeft=30% */
+    
+    width : 28rem;
+    height : 45vh;
+    margin-top: 10%;
+    margin-left: 30%;
+}    
+ @media screen and (max-width: 820px) {
+    .cardfirst{
+        width : 22rem;
+        height : 45vh;
+        margin-left: 25%;
+    }
+ }
+
+ @media screen and (max-width: 520px) {
+    .cardfirst{
+        width : 20rem;
+        height : 45vh;
+        margin-left: 12%;
+    }
+ }
+
+ @media screen and (max-width: 400px) {
+    .cardfirst{
+        width : 17rem;
+        height : 45vh;
+        margin-left: 5%;
+    }
+ }
