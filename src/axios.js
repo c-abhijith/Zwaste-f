@@ -1,11 +1,11 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL: "http://127.0.0.1:8000",
+  baseURL: "https://mygadgests.live",
 });
 
 export const axiosAuthorize = axios.create({
-  baseURL: "http://127.0.0.1:8000",
+  baseURL: "https://mygadgests.live",
   headers: { Authorization: `Bearer ${localStorage.getItem("accessToken")}` },
 });
   
