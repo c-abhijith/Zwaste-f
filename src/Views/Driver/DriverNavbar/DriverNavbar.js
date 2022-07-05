@@ -120,20 +120,7 @@ const DriverNavbar = () => {
               Profile
             </Link>
           </li>
-          <li className="my-4">
-          
-
-
-              <NavDropdown title="Notification"  id="basic-nav-dropdown" className="bg-transparent">
-                {not && not.map((data,index)=>(
-                  
-                  <NavDropdown.Item style={{backgroundColor:"#064841 "}} ><Card>
-                                                    <Card.Body> <img style={{width:"40px",height:"40px"}} src="https://cdn-icons-png.flaticon.com/512/272/272820.png" alt="no" />  {data.userid.username} <button className="btn btn-success mx-4" onClick={()=>{deletedata(data)}}>Go</button></Card.Body>
-                                                  </Card></NavDropdown.Item>
-                 )) }
-                 
-              </NavDropdown>
-          </li>
+         
           <li className='nav-itemp'>
             
             <div className="nav-itemp">
