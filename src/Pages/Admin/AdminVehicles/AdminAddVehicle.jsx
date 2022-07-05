@@ -28,7 +28,7 @@ const AdminAddVehicle = () => {
                formData.append("vehicleBook_image",datas.choose_image[0],"image.png")
                formData.append("vehicle_RCowner", datas.vehicle_RCowner);
                formData.append("vehicle_Name", datas.vehicle_Name);
-               formData.append("vehicle_number", String(datas.vehicle_number));
+               formData.append("vehicle_number",datas.vehicle_number);
                console.log(":::::::::::::::;;;;;;")
                const {data} = await Axios.post(`dash/vehicle`,
                formData,{
