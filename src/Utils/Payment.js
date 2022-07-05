@@ -30,7 +30,7 @@ export const makePayment = async (price,id, callBack) => {
   var response;
 
   try {
-    response = await axios.post("http://localhost:8000/payment/payment",{price: price},
+    response = await axios.post("payment/payment",{price: price},
     
      );
     console.log(response);
