@@ -31,7 +31,9 @@ const containerStyle = {
 const DriverHomes = () => {
 
 
+  
   const [notification, setNotification] = useState(false);
+  const [www, setwww] = useState();
   const [notificationclose, setNotificationclose] = useState(true);
 
 
@@ -54,7 +56,7 @@ console.log(user,"|||||||||||||||||||||||||||||||")
  
   const [topRightModal, setTopRightModal] = useState(false);
   const [username, setUsername] = useState();
-
+  
 
   const [not,setNot]= useState();
   const toggleShow = () => setTopRightModal(!topRightModal)
@@ -67,7 +69,7 @@ console.log(user,"|||||||||||||||||||||||||||||||")
     const[lon,setLon]=useState()
     const [distance, setDistance] = useState('')
     const [duration, setDuration] = useState('')
-    const scrollContainerStyle = { width: "100%", maxHeight: "200px" };
+    const scrollContainerStyle = { width: "22%", maxHeight: "200px" };
     const[userLocations,setUserlocations]= useState()
    
 
@@ -75,6 +77,13 @@ console.log(user,"|||||||||||||||||||||||||||||||")
 
     const handleClose = () => setShowLoading(false);
     const handleShow = () => setShowLoading(true);
+
+
+    const [showprofile, setShowprofile] = useState(false);
+
+  const handleCloseprofile = () => setShowprofile(false);
+  const handleShowprofile = () => setShowprofile(true);
+
 
      
   const deletedata = async(event)=>{
@@ -123,7 +132,7 @@ console.log(user,"|||||||||||||||||||||||||||||||")
     }
 
 
-    
+    console.log(showprofile,"kukku")
     const Userdetails = async()=>{
       const token=localStorage.getItem("accessToken")
       const decode = jwt_decode(token)
@@ -185,8 +194,9 @@ console.log(user,"|||||||||||||||||||||||||||||||")
       console.log(data,"qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq")
       setDirectionsResponse(null)
       const directionsService = new window.google.maps.DirectionsService()
-      toggleShow()
+      handleShowprofile()
       setUsername(data)
+      setwww(data)
       // eslint-disable-next-line no-undef
       setDirectionsResponse("")
       console.log(data,"-----------------------d-------------------")
@@ -284,7 +294,7 @@ console.log(user,"|||||||||||||||||||||||||||||||")
         onStart={eventHandler}
         onDrag={eventHandler}
         onStop={eventHandler}>
-      <Card
+      <div
         p={4}
         position="absolute"
         borderRadius='lg'
@@ -297,14 +307,15 @@ console.log(user,"|||||||||||||||||||||||||||||||")
         Size="20px"
         backgroundColor="#901ba6"
       >
-        <div spacing={2} style={{backgroundColor:"#901ba6",borderColor:"pink"}} justifyContent='space-between'>
-
+        <div spacing={2}  justifyContent='space-between'>
+       
         {notificationclose ? 
-        <div>
+        <div style={{backgroundColor:"#901ba6",borderColor:"pink",width:"20px"}}>
           
           {not && <i onClick={NotificationhandleClose} class="fas fa-bell text-white"></i>}
           </div>
-           : " "
+
+           : "  "
         
         }
           
@@ -315,7 +326,7 @@ console.log(user,"|||||||||||||||||||||||||||||||")
          <i class="fa fa-window-close" onClick={NotificationhandleShow} aria-hidden="true"></i>
         {not && not.map((data,index)=>(
           
-          <Card style={{backgroundColor:"#064841 " , height:"80px"}} ><Card>
+          <Card style={{backgroundColor:"#064841 " , height:"80px",width:"240px"}} ><Card>
                                                     <Card.Body> <img style={{width:"40px",height:"40px"}} src="https://cdn-icons-png.flaticon.com/512/272/272820.png" alt="no" />  {data.userid.username} <button className="btn btn-success mx-4" onClick={()=>{deletedata(data)}}>Go</button></Card.Body>
                                                   </Card></Card>
                  )) }  
@@ -324,8 +335,28 @@ console.log(user,"|||||||||||||||||||||||||||||||")
         </div>
         : " "}
       {/* <div onClick={clear}>clear</div> */}
-      </Card>
+      </div>
       </Draggable>
+      {showprofile && 
+      <Modal show={showprofile} onHide={handleCloseprofile}>
+        <Modal.Header closeButton>
+          <Modal.Title>user profile</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+                  <p>Username :    {www.username} </p>
+                  <p>Name  :       {www.first_name} </p>
+                  <p>phone_number: {www.phone_number}</p>  
+                  <br />
+                  <p>Distance: {distance} </p>
+                <p>Duration: {duration} </p> 
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseprofile}>
+            Close
+          </Button>
+          
+        </Modal.Footer>
+      </Modal>}
     </div>
                 {/* <Col className="m-2">
                 {user && <div>ss</div>}
